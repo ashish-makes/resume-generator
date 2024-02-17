@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"}>
+    <title>{% block title %}{% endblock title %} - Resume App</title>
+</head>
+<body>
+
+    <header>
+        <!-- Navigation bar code goes here -->
+        <nav class="navbar container">
+            <span>resume builder</span>
+            <ul class="navbar-items">
+                <li><a href = "/">Home</a></li>
+                <li><a href = "/">About</a></li>
+                <li><a href = "/">Build your resume</a></li>
+                <li><a href = "/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+    <aside>
+        <!-- Sidebar code goes here -->
+    </aside>
+
+    <footer>
+        <!-- Footer code goes here -->
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
