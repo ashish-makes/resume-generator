@@ -14,10 +14,13 @@
             <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#fff"/>
         </svg>            
     </a><br>
-    <div class="hero-img"></div>
+    <div class="hero-img">
+        <img src="{% static "img/resume.png" %}">
+    </div>
 </section>
-<section class="container how-to-use">
-    <center><h2>Get started in 3 steps</h2></center><br>
+<section class="how-to-use">
+    <div class="container">
+        <center><h2>Get started in 3 steps</h2></center><br>
         <div class="how-to-use-content">
             <div class="step">
                 <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,12 +51,14 @@
                 </svg>                    
                 <p>Share your web resume</p>                   
             </div>
+    </div>
         </div>
 </section>
 <section class="container features">
+    <center><h2>Features</h2></center>
     <div class="features-content">
         <div class="features-list">
-            <h2>Features</h2>
+            {% comment %} <h2>We offers</h2> {% endcomment %}
             <ul>
                 <li>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,5 +100,58 @@
             <div>Expands Job Options by<br><br><span>80%</span></div>
         </div>
     </div>
+</section>
+<section class="reviews">
+    <div class="container">
+        <center><h2>People loves our product</h2></center><br>
+        <div class="reviews-content">
+            <div class="review">
+                "I couldn't be happier with my new resume! The platform provided an easy-to-use interface and a variety of templates to choose from. I highly recommend it to anyone looking to create a professional resume quickly."
+                <hr>
+                <div class="customer">
+                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=John&radius=50" alt="avatar" />
+                    <div>
+                        <p class="name">John Doe</p>
+                        <p class="designation">Software Engineer</p>
+                    </div>
+                </div>                    
+            </div>
+            <div class="review">
+                "This website made the daunting task of resume building much simpler. The personalized links feature was particularly useful for sharing my resume with potential employers. Definitely worth trying out!"
+                <hr>
+                <div class="customer">
+                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=Emily&radius=50" alt="avatar" />
+                    <div>
+                        <p class="name">Emily Smith</p>
+                        <p class="designation">Marketing Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review">
+                "I'm impressed by the quality of resumes I was able to create using this platform. The download options provided flexibility, and I appreciated the ability to customize my resume according to my preferences."
+                <hr>
+                <div class="customer">
+                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=Michael&radius=50" alt="avatar" />
+                    <div>
+                        <p class="name">Michael Johnson</p>
+                        <p class="designation">Human Resources Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        </div>
+</section>
+<section class="call-to-action">
+<div class="container call-to-action-content">
+    <h2>Ready to take the next step in your career journey?</h2><br>
+    <p>Let's create your standout resume together and unlock exciting opportunities!</p><br>
+    <a href='' class='btn'>
+        Start Building Today
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.4291 18.8201C14.2391 18.8201 14.0491 18.7501 13.8991 18.6001C13.6091 18.3101 13.6091 17.8301 13.8991 17.5401L19.4391 12.0001L13.8991 6.46012C13.6091 6.17012 13.6091 5.69012 13.8991 5.40012C14.1891 5.11012 14.6691 5.11012 14.9591 5.40012L21.0291 11.4701C21.3191 11.7601 21.3191 12.2401 21.0291 12.5301L14.9591 18.6001C14.8091 18.7501 14.6191 18.8201 14.4291 18.8201Z" fill="#fff"/>
+            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#fff"/>
+        </svg>            
+    </a>
+</div>
 </section>
 {% endblock content %}
