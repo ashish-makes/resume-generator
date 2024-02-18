@@ -11,3 +11,7 @@ def about(request):
 # Contact page
 def contact(request):
     return render(request, 'contact.html', {})
+
+# Builder page
+def builder(request):
+    return render(request, 'builder.html', {})
