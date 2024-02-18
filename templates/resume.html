@@ -1,92 +1,131 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block title %}Resume{% endblock title %}
 
 {% block content %}
+<section class="container resume">
+    <h1>Resume</h1>
+    <h2>Personal Information</h2>
+    <p><strong>Name:</strong> {{ personal_info.full_name }}</p>
+    <p><strong>Phone:</strong> {{ personal_info.phone }}</p>
+    <p><strong>Email:</strong> {{ personal_info.email }}</p>
+    <p><strong>Address:</strong> {{ personal_info.address }}</p>
+    <p><strong>Date of Birth:</strong> {{ personal_info.dob }}</p>
+    <p><strong>Nationality:</strong> {{ personal_info.nationality }}</p>
+    <p><strong>LinkedIn:</strong> <a href="{{ personal_info.linkedin }}" target="_blank">{{ personal_info.linkedin }}</a></p>
+    <p><strong>Portfolio:</strong> <a href="{{ personal_info.portfolio }}" target="_blank">{{ personal_info.portfolio }}</a></p>
 
-<section class="resume container">
+    <h2>Education</h2>
+    <p><strong>Degree:</strong> {{ personal_info.degree }}</p>
+    <p><strong>Field of Study:</strong> {{ personal_info.field_of_study }}</p>
+    <p><strong>Institution:</strong> {{ personal_info.institution }}</p>
+    <p><strong>Location:</strong> {{ personal_info.institution_location }}</p>
+    <p><strong>Graduation Year:</strong> {{ personal_info.graduation_year }}</p>
+    <p><strong>GPA:</strong> {{ personal_info.gpa }}</p>
 
-    <div class="perosnal-info">
-        <h2>Personal Information</h2>
-        <p><strong>Full Name:</strong> {{ full_name }}</p>
-        <p><strong>Phone Number:</strong> {{ phone }}</p>
-        <p><strong>Email Address:</strong> {{ email }}</p>
-        <p><strong>Address:</strong> {{ address }}</p>
-        <p><strong>Date of Birth:</strong> {{ dob }}</p>
-        <p><strong>Nationality:</strong> {{ nationality }}</p>
-        <p><strong>LinkedIn Profile:</strong> <a href="{{ linkedin }}">{{ linkedin }}</a></p>
-        <p><strong>Portfolio Website:</strong> <a href="{{ portfolio }}">{{ portfolio }}</a></p>
-    </div>
-    
-    <div class="education-info">
-        <h2>Education</h2>
+    <h2>Work Experience</h2>
+    <p><strong>Job Title:</strong> {{ personal_info.job_title }}</p>
+    <p><strong>Company:</strong> {{ personal_info.company }}</p>
+    <p><strong>Location:</strong> {{ personal_info.work_location }}</p>
+    <p><strong>Employment Dates:</strong> {{ personal_info.employment_dates }}</p>
+    <p><strong>Responsibilities:</strong> {{ personal_info.responsibilities }}</p>
+    <p><strong>Achievements:</strong> {{ personal_info.achievements }}</p>
+
+    <h2>Certifications</h2>
+    <p><strong>Certification Name:</strong> {{ personal_info.certification_name }}</p>
+    <p><strong>Issuing Organization:</strong> {{ personal_info.issuing_organization }}</p>
+    <p><strong>Date Earned:</strong> {{ personal_info.date_earned }}</p>
+
+    <h2>Projects</h2>
+    <p><strong>Project Title:</strong> {{ personal_info.project_title }}</p>
+    <p><strong>Description:</strong> {{ personal_info.project_description }}</p>
+    <p><strong>Your Role:</strong> {{ personal_info.your_role }}</p>
+    <p><strong>Technologies Used:</strong> {{ personal_info.technologies_used }}</p>
+    <p><strong>Project URL:</strong> <a href="{{ personal_info.project_url }}" target="_blank">{{ personal_info.project_url }}</a></p>
+
+    <h2>Skills</h2>
+    <p><strong>Technical Skills:</strong> {{ personal_info.technical_skills }}</p>
+    <p><strong>Soft Skills:</strong> {{ personal_info.soft_skills }}</p>
+    <p><strong>Language Proficiency:</strong> {{ personal_info.language_proficiency }}</p>
+
+    <h2>Additional Information</h2>
+    <p><strong>Awards/Honors:</strong> {{ personal_info.awards_honors }}</p>
+    <p><strong>Volunteer Experience:</strong> {{ personal_info.volunteer_experience }}</p>
+    <p><strong>Interests/Hobbies:</strong> {{ personal_info.interests_hobbies }}</p>
+</section>
+{% endblock content %}
+
+{% comment %} {% extends 'base.html' %}
+{% block title %}Resume{% endblock title %}
+
+{% block content %}
+<section class="container resume">
+    <h1>Resume</h1>
+    <h2>Personal Information</h2>
+    <p><strong>Name:</strong> {{ personal_info.full_name }}</p>
+    <p><strong>Phone:</strong> {{ personal_info.phone }}</p>
+    <p><strong>Email:</strong> {{ personal_info.email }}</p>
+    <p><strong>Address:</strong> {{ personal_info.address }}</p>
+    <p><strong>Date of Birth:</strong> {{ personal_info.dob }}</p>
+    <p><strong>Nationality:</strong> {{ personal_info.nationality }}</p>
+    <p><strong>LinkedIn:</strong> <a href="{{ personal_info.linkedin }}" target="_blank">{{ personal_info.linkedin }}</a></p>
+    <p><strong>Portfolio:</strong> <a href="{{ personal_info.portfolio }}" target="_blank">{{ personal_info.portfolio }}</a></p>
+
+    <h2>Education</h2>
+    <div class="education-section">
         {% for education in educations %}
-        <div class="education-section">
             <p><strong>Degree:</strong> {{ education.degree }}</p>
-            <p><strong>Field of Study/Major:</strong> {{ education.field_of_study }}</p>
-            <p><strong>Institution Name:</strong> {{ education.institution }}</p>
-            <p><strong>Location of Institution:</strong> {{ education.institution_location }}</p>
+            <p><strong>Field of Study:</strong> {{ education.field_of_study }}</p>
+            <p><strong>Institution:</strong> {{ education.institution }}</p>
+            <p><strong>Location:</strong> {{ education.institution_location }}</p>
             <p><strong>Graduation Year:</strong> {{ education.graduation_year }}</p>
             <p><strong>GPA:</strong> {{ education.gpa }}</p>
-        </div>
+            <hr>
         {% endfor %}
     </div>
 
-    <div class="skills-info">
-        <h2>Skills</h2>
-        <div class="skills-section">
-            <p><strong>Technical Skills:</strong> {{ technical_skills }}</p>
-            <p><strong>Soft Skills:</strong> {{ soft_skills }}</p>
-            <p><strong>Language Proficiency:</strong> {{ language_proficiency }}</p>
-        </div>
-    </div>
-
-    <div class="work-experiences-info">
-        <h2>Work Experience</h2>
-        {% for experience in work_experiences %}
-        <div class="work-experience-section">
-            <p><strong>Job Title:</strong> {{ experience.job_title }}</p>
-            <p><strong>Company Name:</strong> {{ experience.company }}</p>
-            <p><strong>Location of Work:</strong> {{ experience.work_location }}</p>
-            <p><strong>Employment Dates:</strong> {{ experience.employment_dates }}</p>
-            <p><strong>Responsibilities:</strong> {{ experience.responsibilities }}</p>
-            <p><strong>Achievements:</strong> {{ experience.achievements }}</p>
-        </div>
+    <h2>Work Experience</h2>
+    <div class="work-experience-section">
+        {% for work_experience in work_experiences %}
+            <p><strong>Job Title:</strong> {{ work_experience.job_title }}</p>
+            <p><strong>Company:</strong> {{ work_experience.company }}</p>
+            <p><strong>Location:</strong> {{ work_experience.work_location }}</p>
+            <p><strong>Employment Dates:</strong> {{ work_experience.employment_dates }}</p>
+            <p><strong>Responsibilities:</strong> {{ work_experience.responsibilities }}</p>
+            <p><strong>Achievements:</strong> {{ work_experience.achievements }}</p>
+            <hr>
         {% endfor %}
     </div>
 
-    <div class="certification-info">
-        <h2>Certifications</h2>
+    <h2>Certifications</h2>
+    <div class="certifications-section">
         {% for certification in certifications %}
-        <div class="certifications-section">
             <p><strong>Certification Name:</strong> {{ certification.certification_name }}</p>
             <p><strong>Issuing Organization:</strong> {{ certification.issuing_organization }}</p>
             <p><strong>Date Earned:</strong> {{ certification.date_earned }}</p>
-        </div>
+            <hr>
         {% endfor %}
     </div>
 
-    <div class="projects-info">
-        <h2>Projects</h2>
+    <h2>Projects</h2>
+    <div class="projects-section">
         {% for project in projects %}
-        <div class="projects-section">
             <p><strong>Project Title:</strong> {{ project.project_title }}</p>
             <p><strong>Description:</strong> {{ project.project_description }}</p>
             <p><strong>Your Role:</strong> {{ project.your_role }}</p>
             <p><strong>Technologies Used:</strong> {{ project.technologies_used }}</p>
-            <p><strong>Project URL:</strong> <a href="{{ project.project_url }}">{{ project.project_url }}</a></p>
-        </div>
+            <p><strong>Project URL:</strong> <a href="{{ project.project_url }}" target="_blank">{{ project.project_url }}</a></p>
+            <hr>
         {% endfor %}
     </div>
 
-    <div class="additional-info">
-        <h2>Additional Information</h2>
-        <p><strong>Awards/Honors:</strong> {{ awards_honors }}</p>
-        <p><strong>Volunteer Experience:</strong> {{ volunteer_experience }}</p>
-        <p><strong>Interests/Hobbies:</strong> {{ interests_hobbies }}</p>
-    </div>
-    
-</section>
+    <h2>Skills</h2>
+    <p><strong>Technical Skills:</strong> {{ personal_info.technical_skills }}</p>
+    <p><strong>Soft Skills:</strong> {{ personal_info.soft_skills }}</p>
+    <p><strong>Language Proficiency:</strong> {{ personal_info.language_proficiency }}</p>
 
-{% endblock content %}
+    <h2>Additional Information</h2>
+    <p><strong>Awards/Honors:</strong> {{ personal_info.awards_honors }}</p>
+    <p><strong>Volunteer Experience:</strong> {{ personal_info.volunteer_experience }}</p>
+    <p><strong>Interests/Hobbies:</strong> {{ personal_info.interests_hobbies }}</p>
+</section>
+{% endblock content %} {% endcomment %}

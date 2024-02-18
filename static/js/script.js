@@ -1,27 +1,42 @@
+var educationCount = 1;
+var workExperienceCount = 1;
+var certificationCount = 1;
+var projectCount = 1;
+
 function addEducation() {
-    // Clone the education section and append it
     var educationSection = document.querySelector('.education-section');
     var clone = educationSection.cloneNode(true);
-    educationSection.parentNode.appendChild(clone);
+    updateIds(clone, 'education', educationCount++);
+    var addButton = document.querySelector('button[type="button"][onclick="addEducation()"]');
+    addButton.parentNode.insertBefore(clone, addButton);
 }
 
 function addWorkExperience() {
-    // Clone the work experience section and append it
     var workExperienceSection = document.querySelector('.work-experience-section');
     var clone = workExperienceSection.cloneNode(true);
-    workExperienceSection.parentNode.appendChild(clone);
+    updateIds(clone, 'work-experience', workExperienceCount++);
+    var addButton = document.querySelector('button[type="button"][onclick="addWorkExperience()"]');
+    addButton.parentNode.insertBefore(clone, addButton);
 }
 
 function addCertification() {
-    // Clone the certifications section and append it
     var certificationsSection = document.querySelector('.certifications-section');
     var clone = certificationsSection.cloneNode(true);
-    certificationsSection.parentNode.appendChild(clone);
+    updateIds(clone, 'certifications', certificationCount++);
+    var addButton = document.querySelector('button[type="button"][onclick="addCertification()"]');
+    addButton.parentNode.insertBefore(clone, addButton);
 }
 
 function addProject() {
-    // Clone the projects section and append it
     var projectsSection = document.querySelector('.projects-section');
     var clone = projectsSection.cloneNode(true);
-    projectsSection.parentNode.appendChild(clone);
+    updateIds(clone, 'projects', projectCount++);
+    var addButton = document.querySelector('button[type="button"][onclick="addProject()"]');
+    addButton.parentNode.insertBefore(clone, addButton);
+}
+
+function updateIds(clone, sectionType, count) {
+    clone.querySelectorAll('[id]').forEach(function(element) {
+        element.id = element.id + '-' + sectionType + '-' + count;
+    });
 }
