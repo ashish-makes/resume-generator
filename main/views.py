@@ -15,3 +15,7 @@ def contact(request):
 # Builder page
 def builder(request):
     return render(request, 'builder.html', {})
+
+# Builder page
+def resume(request):
+    return render(request, 'resume.html', {})

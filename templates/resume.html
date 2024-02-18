@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Resume{% endblock title %}
+
+{% block content %}
+
+<section class="resume container">
+
+    <div class="perosnal-info">
+        <h2>Personal Information</h2>
+        <p><strong>Full Name:</strong> {{ full_name }}</p>
+        <p><strong>Phone Number:</strong> {{ phone }}</p>
+        <p><strong>Email Address:</strong> {{ email }}</p>
+        <p><strong>Address:</strong> {{ address }}</p>
+        <p><strong>Date of Birth:</strong> {{ dob }}</p>
+        <p><strong>Nationality:</strong> {{ nationality }}</p>
+        <p><strong>LinkedIn Profile:</strong> <a href="{{ linkedin }}">{{ linkedin }}</a></p>
+        <p><strong>Portfolio Website:</strong> <a href="{{ portfolio }}">{{ portfolio }}</a></p>
+    </div>
+    
+    <div class="education-info">
+        <h2>Education</h2>
+        {% for education in educations %}
+        <div class="education-section">
+            <p><strong>Degree:</strong> {{ education.degree }}</p>
+            <p><strong>Field of Study/Major:</strong> {{ education.field_of_study }}</p>
+            <p><strong>Institution Name:</strong> {{ education.institution }}</p>
+            <p><strong>Location of Institution:</strong> {{ education.institution_location }}</p>
+            <p><strong>Graduation Year:</strong> {{ education.graduation_year }}</p>
+            <p><strong>GPA:</strong> {{ education.gpa }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="skills-info">
+        <h2>Skills</h2>
+        <div class="skills-section">
+            <p><strong>Technical Skills:</strong> {{ technical_skills }}</p>
+            <p><strong>Soft Skills:</strong> {{ soft_skills }}</p>
+            <p><strong>Language Proficiency:</strong> {{ language_proficiency }}</p>
+        </div>
+    </div>
+
+    <div class="work-experiences-info">
+        <h2>Work Experience</h2>
+        {% for experience in work_experiences %}
+        <div class="work-experience-section">
+            <p><strong>Job Title:</strong> {{ experience.job_title }}</p>
+            <p><strong>Company Name:</strong> {{ experience.company }}</p>
+            <p><strong>Location of Work:</strong> {{ experience.work_location }}</p>
+            <p><strong>Employment Dates:</strong> {{ experience.employment_dates }}</p>
+            <p><strong>Responsibilities:</strong> {{ experience.responsibilities }}</p>
+            <p><strong>Achievements:</strong> {{ experience.achievements }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="certification-info">
+        <h2>Certifications</h2>
+        {% for certification in certifications %}
+        <div class="certifications-section">
+            <p><strong>Certification Name:</strong> {{ certification.certification_name }}</p>
+            <p><strong>Issuing Organization:</strong> {{ certification.issuing_organization }}</p>
+            <p><strong>Date Earned:</strong> {{ certification.date_earned }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="projects-info">
+        <h2>Projects</h2>
+        {% for project in projects %}
+        <div class="projects-section">
+            <p><strong>Project Title:</strong> {{ project.project_title }}</p>
+            <p><strong>Description:</strong> {{ project.project_description }}</p>
+            <p><strong>Your Role:</strong> {{ project.your_role }}</p>
+            <p><strong>Technologies Used:</strong> {{ project.technologies_used }}</p>
+            <p><strong>Project URL:</strong> <a href="{{ project.project_url }}">{{ project.project_url }}</a></p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="additional-info">
+        <h2>Additional Information</h2>
+        <p><strong>Awards/Honors:</strong> {{ awards_honors }}</p>
+        <p><strong>Volunteer Experience:</strong> {{ volunteer_experience }}</p>
+        <p><strong>Interests/Hobbies:</strong> {{ interests_hobbies }}</p>
+    </div>
+    
+</section>
+
+{% endblock content %}
