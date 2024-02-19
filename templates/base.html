@@ -15,13 +15,28 @@
         <nav class="navbar container">
             <span>resume builder</span>
             <ul class="navbar-items">
-                <li><a href = "/">Home</a></li>
-                <li><a href = "/">About</a></li>
-                <li><a href = "/">Build your resume</a></li>
-                <li><a href = "/">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/builder">Build your resume</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
+            <div class="mob-menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -7 24 24" width="28" fill="#5c5c5ce6"><path d="M1 0h5a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm7 8h5a1 1 0 0 1 0 2H8a1 1 0 1 1 0-2zM1 4h12a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2z"></path></svg>
+            </div>
+            <div class="mob-menu-close-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 24 24" width="28" fill="currentColor"><path d="M7.314 5.9l3.535-3.536A1 1 0 1 0 9.435.95L5.899 4.485 2.364.95A1 1 0 1 0 .95 2.364l3.535 3.535L.95 9.435a1 1 0 1 0 1.414 1.414l3.535-3.535 3.536 3.535a1 1 0 1 0 1.414-1.414L7.314 5.899z"></path></svg>
+            </div>
         </nav>
-    </header>
+        <!-- Mobile Menu -->
+        <div class='mob-menu'>
+            <ul class="container">
+                <a href='/'><li>Home</li></a>
+                <a href='/about'><li>About</li></a>
+                <a href='/builder'><li>Build your resume</li></a>
+                <a href='/contact'><li>Contact</li></a>
+            </ul>
+        </div>
+    </header>    
 
     <main>
         {% block content %}{% endblock content %}

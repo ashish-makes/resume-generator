@@ -80,6 +80,7 @@ li {
 header {
     padding: 1rem;
     background: #f7f7f9;
+    position: relative;
 }
 
 .navbar {
@@ -91,6 +92,35 @@ header {
 .navbar-items {
     display: flex;
     gap: 20px;
+}
+
+.mob-menu-icon, .mob-menu-close-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.mob-menu-icon:hover path {
+    fill: #000;
+}
+
+.mob-menu ul li {
+    margin: 2em 0;
+}
+
+.mob-menu {
+    display: none;
+    padding: 2em;
+    position: fixed;
+    top: 20;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #f7f7f9;
+    z-index: 1000;
+}
+
+.menu-open header {
+    height: 100vh;
 }
 
 .hero {
@@ -433,6 +463,12 @@ button:hover svg path {
     }
     .personal-info-section img {
         display: none;
+    }
+    .mob-menu-icon {
+        display: block;
+    }
+    .show-menu {
+        display: block;
     }
 }
 
