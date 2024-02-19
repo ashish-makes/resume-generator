@@ -330,6 +330,81 @@ button:hover svg path {
     margin-right: 5px;
 }
 
+.personal-info-section {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: #f7f7f9 2px solid;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+.personal-info-section img {
+    width: 100px;
+    height: auto;
+}
+
+.personal-info {
+    display: flex;
+    gap: 20px;
+    font-size: smaller;
+}
+
+.personal-info-name {
+    margin-bottom: 1em;
+}
+
+.resume-share-btn {
+    float: right;
+    display: flex;
+    gap: 10px;
+    /* margin-right: 10px; */
+}
+
+.personal-info-img {
+    display: inline-flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.education-info-section, .work-experience-info-section, .skills-info-section div, .project-info-section, .certification-info-section {
+    border: #f7f7f9 2px solid;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+.education-info-section {
+    margin-top: 1em;
+}
+.skills-info-section div, .project-info-section {
+    margin: 1em 0;
+}
+
+.degree {
+    display: flex;
+    margin: 1em 0;
+    justify-content: space-between;
+}
+
+.institution {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.institution-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.skills-info-section {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 20px;
+}
+
 @media (max-width: 1000px){
 	.container{
 		margin: 0 auto;
@@ -355,6 +430,9 @@ button:hover svg path {
     }
     .reviews-content {
         grid-template-columns: repeat(1, 1fr);
+    }
+    .personal-info-section img {
+        display: none;
     }
 }
 

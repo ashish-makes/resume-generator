@@ -44,7 +44,7 @@ def builder(request):
             # Certification
             certification_name=request.POST.get('certification_name', ''),
             issuing_organization=request.POST.get('issuing_organization', ''),
-            date_earned=request.POST.get('date_earned', None),
+            date_earned=request.POST.get('date_earned', None) or None,
             # Project
             project_title=request.POST.get('project_title', ''),
             project_description=request.POST.get('project_description', ''),
@@ -55,10 +55,6 @@ def builder(request):
             technical_skills=request.POST.get('technical_skills', ''),
             soft_skills=request.POST.get('soft_skills', ''),
             # language_proficiency=request.POST.get('language_proficiency', ''),
-            # Additional Information
-            awards_honors=request.POST.get('awards_honors', ''),
-            volunteer_experience=request.POST.get('volunteer_experience', ''),
-            interests_hobbies=request.POST.get('interests_hobbies', '')
         )
 
         # Redirect to the resume page with the unique identifier

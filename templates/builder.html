@@ -18,11 +18,11 @@
         <label for="email">Email Address:</label>
         <input type="email" id="email" name="email" required>
         <label for="address">Address:</label>
-        <input type="text" id="address" name="address">
+        <input type="text" id="address" name="address" required>
         <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob">
+        <input type="date" id="dob" name="dob" required>
         <label for="nationality">Nationality:</label>
-        <input type="text" id="nationality" name="nationality">
+        <input type="text" id="nationality" name="nationality" required>
         <label for="linkedin">LinkedIn Profile:</label>
         <input type="url" id="linkedin" name="linkedin">
         <label for="portfolio">Portfolio Website:</label>
@@ -32,107 +32,98 @@
         <h2>Education</h2>
         <div class="education-section">
         <label for="degree">Degree:</label>
-        <input type="text" id="degree" name="degree">
+        <input type="text" id="degree" name="degree" required>
         <label for="field_of_study">Field of Study/Major:</label>
-        <input type="text" id="field_of_study" name="field_of_study">
+        <input type="text" id="field_of_study" name="field_of_study" required>
         <label for="institution">Institution Name:</label>
-        <input type="text" id="institution" name="institution">
+        <input type="text" id="institution" name="institution" required>
         <label for="institution_location">Location of Institution:</label>
-        <input type="text" id="institution_location" name="institution_location">
+        <input type="text" id="institution_location" name="institution_location" required>
         <label for="graduation_year">Graduation Year:</label>
-        <input type="number" id="graduation_year" name="graduation_year">
+        <input type="number" id="graduation_year" name="graduation_year" required>
         <label for="gpa">GPA:</label>
-        <input type="text" id="gpa" name="gpa">
+        <input type="text" id="gpa" name="gpa" required>
         </div>
-        <button type="button" onclick="addEducation()">
+        {% comment %} <button type="button" onclick="addEducation()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 12.75H6C5.59 12.75 5.25 12.41 5.25 12C5.25 11.59 5.59 11.25 6 11.25H18C18.41 11.25 18.75 11.59 18.75 12C18.75 12.41 18.41 12.75 18 12.75Z" fill="#fff"/>
                 <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V6C11.25 5.59 11.59 5.25 12 5.25C12.41 5.25 12.75 5.59 12.75 6V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#fff"/>
             </svg>
                 Add Education
-            </button>
+            </button> {% endcomment %}
     
         <!-- Work Experience -->
         <h2>Work Experience</h2>
         <div class="work-experience-section">
         <label for="job_title">Job Title:</label>
-        <input type="text" id="job_title" name="job_title">
+        <input type="text" id="job_title" name="job_title" required>
         <label for="company">Company Name:</label>
-        <input type="text" id="company" name="company">
+        <input type="text" id="company" name="company" required>
         <label for="work_location">Location of Work:</label>
-        <input type="text" id="work_location" name="work_location">
+        <input type="text" id="work_location" name="work_location" required>
         <label for="employment_dates">Employment Dates:</label>
-        <input type="text" id="employment_dates" name="employment_dates">
+        <input type="text" id="employment_dates" name="employment_dates" required>
         <label for="responsibilities">Responsibilities:</label>
-        <textarea id="responsibilities" name="responsibilities"></textarea>
+        <textarea id="responsibilities" name="responsibilities" required></textarea>
         {% comment %} <label for="achievements">Achievements:</label>
         <textarea id="achievements" name="achievements"></textarea> {% endcomment %}
         </div>
-        <button type="button" onclick="addWorkExperience()">
+        {% comment %} <button type="button" onclick="addWorkExperience()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 12.75H6C5.59 12.75 5.25 12.41 5.25 12C5.25 11.59 5.59 11.25 6 11.25H18C18.41 11.25 18.75 11.59 18.75 12C18.75 12.41 18.41 12.75 18 12.75Z" fill="#fff"/>
                 <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V6C11.25 5.59 11.59 5.25 12 5.25C12.41 5.25 12.75 5.59 12.75 6V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#fff"/>
             </svg>
             Add Work Experience
-        </button>
+        </button> {% endcomment %}
     
         <!-- Skills -->
         <h2>Skills</h2>
         <label for="technical_skills">Technical Skills:</label>
-        <textarea id="technical_skills" name="technical_skills"></textarea>
+        <textarea id="technical_skills" name="technical_skills" required></textarea>
         <label for="soft_skills">Soft Skills:</label>
-        <textarea id="soft_skills" name="soft_skills"></textarea>
+        <textarea id="soft_skills" name="soft_skills" required></textarea>
         {% comment %} <label for="language_proficiency">Language Proficiency:</label>
         <textarea id="language_proficiency" name="language_proficiency"></textarea> {% endcomment %}
-    
-        <!-- Certifications -->
-        <h2>Certifications</h2>
-        <div class="certifications-section">
-        <label for="certification_name">Certification Name:</label>
-        <input type="text" id="certification_name" name="certification_name">
-        <label for="issuing_organization">Issuing Organization:</label>
-        <input type="text" id="issuing_organization" name="issuing_organization">
-        <label for="date_earned">Date Earned:</label>
-        <input type="date" id="date_earned" name="date_earned">
-        </div>
-        <button type="button" onclick="addCertification()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 12.75H6C5.59 12.75 5.25 12.41 5.25 12C5.25 11.59 5.59 11.25 6 11.25H18C18.41 11.25 18.75 11.59 18.75 12C18.75 12.41 18.41 12.75 18 12.75Z" fill="#fff"/>
-                <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V6C11.25 5.59 11.59 5.25 12 5.25C12.41 5.25 12.75 5.59 12.75 6V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#fff"/>
-            </svg>
-            Add Certification
-        </button>
     
         <!-- Projects -->
         <h2>Projects</h2>
         <div class="projects-section">
         <label for="project_title">Project Title:</label>
-        <input type="text" id="project_title" name="project_title">
+        <input type="text" id="project_title" name="project_title" required>
         <label for="project_description">Description:</label>
-        <textarea id="project_description" name="project_description"></textarea>
+        <textarea id="project_description" name="project_description" required></textarea>
         {% comment %} <label for="your_role">Your Role:</label>
         <input type="text" id="your_role" name="your_role"> {% endcomment %}
         <label for="technologies_used">Technologies Used:</label>
-        <textarea id="technologies_used" name="technologies_used"></textarea>
+        <textarea id="technologies_used" name="technologies_used" required></textarea>
         <label for="project_url">Project URL:</label>
-        <input type="url" id="project_url" name="project_url">
+        <input type="url" id="project_url" name="project_url" required>
         </div>
-        <button type="button" onclick="addProject()">
+        {% comment %} <button type="button" onclick="addProject()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 12.75H6C5.59 12.75 5.25 12.41 5.25 12C5.25 11.59 5.59 11.25 6 11.25H18C18.41 11.25 18.75 11.59 18.75 12C18.75 12.41 18.41 12.75 18 12.75Z" fill="#fff"/>
                 <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V6C11.25 5.59 11.59 5.25 12 5.25C12.41 5.25 12.75 5.59 12.75 6V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#fff"/>
             </svg>
             Add Project
-        </button>
-    
-        <!-- Additional Information -->
-        <h2>Additional Information</h2>
-        <label for="awards_honors">Awards/Honors:</label>
-        <textarea id="awards_honors" name="awards_honors"></textarea>
-        <label for="volunteer_experience">Volunteer Experience:</label>
-        <textarea id="volunteer_experience" name="volunteer_experience"></textarea>
-        <label for="interests_hobbies">Interests/Hobbies:</label>
-        <textarea id="interests_hobbies" name="interests_hobbies"></textarea>
+        </button> {% endcomment %}
+
+                <!-- Certifications -->
+                <h2>Certifications</h2>
+                <div class="certifications-section">
+                <label for="certification_name">Certification Name:</label>
+                <input type="text" id="certification_name" name="certification_name">
+                <label for="issuing_organization">Issuing Organization:</label>
+                <input type="text" id="issuing_organization" name="issuing_organization">
+                <label for="date_earned">Date Earned:</label>
+                <input type="date" id="date_earned" name="date_earned">
+                </div>
+                {% comment %} <button type="button" onclick="addCertification()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 12.75H6C5.59 12.75 5.25 12.41 5.25 12C5.25 11.59 5.59 11.25 6 11.25H18C18.41 11.25 18.75 11.59 18.75 12C18.75 12.41 18.41 12.75 18 12.75Z" fill="#fff"/>
+                        <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V6C11.25 5.59 11.59 5.25 12 5.25C12.41 5.25 12.75 5.59 12.75 6V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="#fff"/>
+                    </svg>
+                    Add Certification
+                </button> {% endcomment %}
     
         <!-- Submit Button -->
         <button type="submit">Generate resume</button>

@@ -43,8 +43,3 @@ class PersonalInformation(models.Model):
     technical_skills = models.TextField(blank=True)
     soft_skills = models.TextField(blank=True)
     # language_proficiency = models.TextField(blank=True)
-
-    # Additional Information
-    awards_honors = models.TextField(blank=True)
-    volunteer_experience = models.TextField(blank=True)
-    interests_hobbies = models.TextField(blank=True)
