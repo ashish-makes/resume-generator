@@ -40,7 +40,7 @@ def builder(request):
             work_location=request.POST.get('work_location', ''),
             employment_dates=request.POST.get('employment_dates', ''),
             responsibilities=request.POST.get('responsibilities', ''),
-            achievements=request.POST.get('achievements', ''),
+            # achievements=request.POST.get('achievements', ''),
             # Certification
             certification_name=request.POST.get('certification_name', ''),
             issuing_organization=request.POST.get('issuing_organization', ''),
@@ -48,13 +48,13 @@ def builder(request):
             # Project
             project_title=request.POST.get('project_title', ''),
             project_description=request.POST.get('project_description', ''),
-            your_role=request.POST.get('your_role', ''),
+            # your_role=request.POST.get('your_role', ''),
             technologies_used=request.POST.get('technologies_used', ''),
             project_url=request.POST.get('project_url', ''),
             # Skills
             technical_skills=request.POST.get('technical_skills', ''),
             soft_skills=request.POST.get('soft_skills', ''),
-            language_proficiency=request.POST.get('language_proficiency', ''),
+            # language_proficiency=request.POST.get('language_proficiency', ''),
             # Additional Information
             awards_honors=request.POST.get('awards_honors', ''),
             volunteer_experience=request.POST.get('volunteer_experience', ''),
@@ -69,7 +69,10 @@ def builder(request):
 
 def resume(request, unique_identifier):
     personal_info = get_object_or_404(PersonalInformation, unique_identifier=unique_identifier)
-    return render(request, 'resume.html', {'personal_info': personal_info})
+    responsibilities_list = personal_info.responsibilities.split('\n')
+    technical_skills_list = personal_info.technical_skills.split('\n')
+    soft_skills_list = personal_info.soft_skills.split('\n')
+    return render(request, 'resume.html', {'personal_info': personal_info, 'responsibilities_list': responsibilities_list, 'technical_skills_list': technical_skills_list, 'soft_skills_list': soft_skills_list})
 
 # from django.utils.crypto import get_random_string
 # from django.shortcuts import render, redirect, get_object_or_404

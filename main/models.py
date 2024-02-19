@@ -25,7 +25,7 @@ class PersonalInformation(models.Model):
     work_location = models.CharField(max_length=100, blank=True)
     employment_dates = models.CharField(max_length=100, blank=True)
     responsibilities = models.TextField(blank=True)
-    achievements = models.TextField(blank=True)
+    # achievements = models.TextField(blank=True)
 
     # Certification
     certification_name = models.CharField(max_length=100, blank=True)
@@ -35,14 +35,14 @@ class PersonalInformation(models.Model):
     # Project
     project_title = models.CharField(max_length=100, blank=True)
     project_description = models.TextField(blank=True)
-    your_role = models.CharField(max_length=100, blank=True)
+    # your_role = models.CharField(max_length=100, blank=True)
     technologies_used = models.TextField(blank=True)
     project_url = models.URLField(blank=True)
 
     # Skills
     technical_skills = models.TextField(blank=True)
     soft_skills = models.TextField(blank=True)
-    language_proficiency = models.TextField(blank=True)
+    # language_proficiency = models.TextField(blank=True)
 
     # Additional Information
     awards_honors = models.TextField(blank=True)

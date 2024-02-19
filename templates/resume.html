@@ -27,8 +27,16 @@
     <p><strong>Company:</strong> {{ personal_info.company }}</p>
     <p><strong>Location:</strong> {{ personal_info.work_location }}</p>
     <p><strong>Employment Dates:</strong> {{ personal_info.employment_dates }}</p>
-    <p><strong>Responsibilities:</strong> {{ personal_info.responsibilities }}</p>
-    <p><strong>Achievements:</strong> {{ personal_info.achievements }}</p>
+    {% comment %} <p><strong>Responsibilities:</strong> {{ personal_info.responsibilities }}</p> {% endcomment %}
+    <div>
+        <p><strong>Responsibilities:</strong></p>
+        <ul>
+            {% for responsibility in responsibilities_list %}
+                <li>• {{ responsibility }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% comment %} <p><strong>Achievements:</strong> {{ personal_info.achievements }}</p> {% endcomment %}
 
     <h2>Certifications</h2>
     <p><strong>Certification Name:</strong> {{ personal_info.certification_name }}</p>
@@ -38,14 +46,30 @@
     <h2>Projects</h2>
     <p><strong>Project Title:</strong> {{ personal_info.project_title }}</p>
     <p><strong>Description:</strong> {{ personal_info.project_description }}</p>
-    <p><strong>Your Role:</strong> {{ personal_info.your_role }}</p>
+    {% comment %} <p><strong>Your Role:</strong> {{ personal_info.your_role }}</p> {% endcomment %}
     <p><strong>Technologies Used:</strong> {{ personal_info.technologies_used }}</p>
     <p><strong>Project URL:</strong> <a href="{{ personal_info.project_url }}" target="_blank">{{ personal_info.project_url }}</a></p>
 
     <h2>Skills</h2>
-    <p><strong>Technical Skills:</strong> {{ personal_info.technical_skills }}</p>
-    <p><strong>Soft Skills:</strong> {{ personal_info.soft_skills }}</p>
-    <p><strong>Language Proficiency:</strong> {{ personal_info.language_proficiency }}</p>
+    {% comment %} <p><strong>Technical Skills:</strong> {{ personal_info.technical_skills }}</p> {% endcomment %}
+    <div>
+        <p><strong>Technical Skills:</strong></p>
+        <ul>
+            {% for technical_skills in technical_skills_list %}
+                <li>• {{ technical_skills }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% comment %} <p><strong>Soft Skills:</strong> {{ personal_info.soft_skills }}</p> {% endcomment %}
+    <div>
+        <p><strong>Soft Skills:</strong></p>
+        <ul>
+            {% for soft_skills in soft_skills_list %}
+                <li>• {{ soft_skills }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% comment %} <p><strong>Language Proficiency:</strong> {{ personal_info.language_proficiency }}</p> {% endcomment %}
 
     <h2>Additional Information</h2>
     <p><strong>Awards/Honors:</strong> {{ personal_info.awards_honors }}</p>
