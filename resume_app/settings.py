@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 from pathlib import Path
 
@@ -25,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jd0w#w+k%@zdwnuiaad^xe7q)abah3f)j3@x(tenk^rvsze^-q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,30 +78,25 @@ WSGI_APPLICATION = 'resume_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# if not DEBUG:
-#     DATABASES = {
+# DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',           # Replace with your PostgreSQL database name
-#         'USER': 'postgres',           # Replace with your PostgreSQL database user
-#         'PASSWORD': 'bcBA*E64*5*CE*c16e3e6eG*g5d1f6c4',   # Replace with your PostgreSQL database password
-#         'HOST': 'viaduct.proxy.rlwy.net',           # Replace with your PostgreSQL database host
-#         'PORT': '30080',           # Replace with your PostgreSQL database port
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': 'db.sqlite3',
-#         }}
+
+DATABASE_URL = 'postgres://fl0user:uGZ5N6rOyLUR@ep-sweet-credit-a5vdcznr.us-east-2.aws.neon.fl0.io:5432/resume-db?sslmode=require'
+
+if not DEBUG:
+    DATABASES = {
+    'default': dj_database_url.config(default=DATABASE_URL)
+}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -140,6 +137,10 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
 os.path.join(BASE_DIR, 'static')
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
