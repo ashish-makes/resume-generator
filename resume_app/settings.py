@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-jd0w#w+k%@zdwnuiaad^xe7q)abah3f)j3@x(tenk^rvsze^-q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -83,16 +83,23 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
+# if not DEBUG:
+#     DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'railway',           # Replace with your PostgreSQL database name
 #         'USER': 'postgres',           # Replace with your PostgreSQL database user
-#         'PASSWORD': 'ee65FAF32Ab3gECcFdae*eCa1bD6345B',   # Replace with your PostgreSQL database password
-#         'HOST': 'roundhouse.proxy.rlwy.net',           # Replace with your PostgreSQL database host
-#         'PORT': '26401',           # Replace with your PostgreSQL database port
+#         'PASSWORD': 'bcBA*E64*5*CE*c16e3e6eG*g5d1f6c4',   # Replace with your PostgreSQL database password
+#         'HOST': 'viaduct.proxy.rlwy.net',           # Replace with your PostgreSQL database host
+#         'PORT': '30080',           # Replace with your PostgreSQL database port
 #     }
 # }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': 'db.sqlite3',
+#         }}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

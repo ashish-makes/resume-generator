@@ -27,6 +27,8 @@ def builder(request):
             linkedin=request.POST.get('linkedin', ''),
             portfolio=request.POST.get('portfolio', ''),
             unique_identifier=unique_identifier,
+
+
             # Education
             degree=request.POST.get('degree', ''),
             field_of_study=request.POST.get('field_of_study', ''),
@@ -34,23 +36,61 @@ def builder(request):
             institution_location=request.POST.get('institution_location', ''),
             graduation_year=request.POST.get('graduation_year', None),
             gpa=request.POST.get('gpa', None),
+
+            degree_1=request.POST.get('degree_1', ''),
+            field_of_study_1=request.POST.get('field_of_study_1', ''),
+            institution_1=request.POST.get('institution_1', ''),
+            institution_location_1=request.POST.get('institution_location_1', ''),
+            graduation_year_1=request.POST.get('graduation_year_1', None),
+            gpa_1=request.POST.get('gpa_1', None),
+
+
             # Work Experience
             job_title=request.POST.get('job_title', ''),
             company=request.POST.get('company', ''),
             work_location=request.POST.get('work_location', ''),
             employment_dates=request.POST.get('employment_dates', ''),
             responsibilities=request.POST.get('responsibilities', ''),
+
+            job_title_1=request.POST.get('job_title_1', ''),
+            company_1=request.POST.get('company_1', ''),
+            work_location_1=request.POST.get('work_location_1', ''),
+            employment_dates_1=request.POST.get('employment_dates_1', ''),
+            responsibilities_1=request.POST.get('responsibilities_1', ''),
+
+            job_title_2=request.POST.get('job_title_2', ''),
+            company_2=request.POST.get('company_2', ''),
+            work_location_2=request.POST.get('work_location_2', ''),
+            employment_dates_2=request.POST.get('employment_dates_2', ''),
+            responsibilities_2=request.POST.get('responsibilities_2', ''),
             # achievements=request.POST.get('achievements', ''),
+
+
             # Certification
             certification_name=request.POST.get('certification_name', ''),
             issuing_organization=request.POST.get('issuing_organization', ''),
             date_earned=request.POST.get('date_earned', None) or None,
+
+            certification_name_1=request.POST.get('certification_name_1', ''),
+            issuing_organization_1=request.POST.get('issuing_organization_1', ''),
+            date_earned_1=request.POST.get('date_earned_1', None) or None,
+
+
             # Project
             project_title=request.POST.get('project_title', ''),
             project_description=request.POST.get('project_description', ''),
-            # your_role=request.POST.get('your_role', ''),
             technologies_used=request.POST.get('technologies_used', ''),
             project_url=request.POST.get('project_url', ''),
+
+            project_title_1=request.POST.get('project_title_1', ''),
+            project_description_1=request.POST.get('project_description_1', ''),
+            technologies_used_1=request.POST.get('technologies_used_1', ''),
+            project_url_1=request.POST.get('project_url_1', ''),
+
+            project_title_2=request.POST.get('project_title_2', ''),
+            project_description_2=request.POST.get('project_description_2', ''),
+            technologies_used_2=request.POST.get('technologies_used_2', ''),
+            project_url_2=request.POST.get('project_url_2', ''),
             # Skills
             technical_skills=request.POST.get('technical_skills', ''),
             soft_skills=request.POST.get('soft_skills', ''),
@@ -66,9 +106,11 @@ def builder(request):
 def resume(request, unique_identifier):
     personal_info = get_object_or_404(PersonalInformation, unique_identifier=unique_identifier)
     responsibilities_list = personal_info.responsibilities.split('\n')
+    responsibilities_list_1 = personal_info.responsibilities_1.split('\n')
+    responsibilities_list_2 = personal_info.responsibilities_2.split('\n')
     technical_skills_list = personal_info.technical_skills.split('\n')
     soft_skills_list = personal_info.soft_skills.split('\n')
-    return render(request, 'resume.html', {'personal_info': personal_info, 'responsibilities_list': responsibilities_list, 'technical_skills_list': technical_skills_list, 'soft_skills_list': soft_skills_list})
+    return render(request, 'resume.html', {'personal_info': personal_info, 'responsibilities_list': responsibilities_list, 'technical_skills_list': technical_skills_list, 'soft_skills_list': soft_skills_list, 'responsibilities_list_1': responsibilities_list_1, 'responsibilities_list_2': responsibilities_list_2,})
 
 # from django.utils.crypto import get_random_string
 # from django.shortcuts import render, redirect, get_object_or_404

@@ -1,27 +1,18 @@
-{% extends 'base.html' %}
-{% block title %}Resume{% endblock title %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"}>
+    <title>{% block title %}{{ personal_info.full_name }}{% endblock title %}</title>
+    <!-- Add your CSS links here -->
+</head>
+<body>
+
+    {% block content %}
 <section class="container resume">
-    {% comment %} <div class="header">
-        <h1>Resume</h1>
-    </div> {% endcomment %}
-
-    <!-- Personal Information -->
-    {% comment %} <div class="section">
-        <h2>Personal Information</h2>
-        <div class="info">
-            <p><strong>Name:</strong> {{ personal_info.full_name }}</p>
-            <p><strong>Phone:</strong> {{ personal_info.phone }}</p>
-            <p><strong>Email:</strong> {{ personal_info.email }}</p>
-            <p><strong>Address:</strong> {{ personal_info.address }}</p>
-            <p><strong>Date of Birth:</strong> {{ personal_info.dob }}</p>
-            <p><strong>Nationality:</strong> {{ personal_info.nationality }}</p>
-            <p><strong>LinkedIn:</strong> <a href="{{ personal_info.linkedin }}" target="_blank">{{ personal_info.linkedin }}</a></p>
-            <p><strong>Portfolio:</strong> <a href="{{ personal_info.portfolio }}" target="_blank">{{ personal_info.portfolio }}</a></p>
-        </div>
-    </div> {% endcomment %}
-
     <div class="personal-info-section">
         <div class="personal-info-img">
             <div>
@@ -30,7 +21,7 @@
             <div>
                 <div class="personal-info-name">
                     <h1>{{ personal_info.full_name }}</h1>
-                    <p>{{ personal_info.nationality }}</p>
+                    <p style="font-size: smaller">{{ personal_info.nationality }}</p>
                 </div>
                 <div class="personal-info">
                     <p class="institution">
@@ -41,41 +32,50 @@
                     </p>
                     <p class="institution">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.0009 14.1699C9.87086 14.1699 8.13086 12.4399 8.13086 10.2999C8.13086 8.15994 9.87086 6.43994 12.0009 6.43994C14.1309 6.43994 15.8709 8.16994 15.8709 10.3099C15.8709 12.4499 14.1309 14.1699 12.0009 14.1699ZM12.0009 7.93994C10.7009 7.93994 9.63086 8.99994 9.63086 10.3099C9.63086 11.6199 10.6909 12.6799 12.0009 12.6799C13.3109 12.6799 14.3709 11.6199 14.3709 10.3099C14.3709 8.99994 13.3009 7.93994 12.0009 7.93994Z" fill="#0e204580"/>
+                            <path d="M11.9997 22.76C10.5197 22.76 9.02969 22.2 7.86969 21.09C4.91969 18.25 1.65969 13.72 2.88969 8.33C3.99969 3.44 8.26969 1.25 11.9997 1.25C11.9997 1.25 11.9997 1.25 12.0097 1.25C15.7397 1.25 20.0097 3.44 21.1197 8.34C22.3397 13.73 19.0797 18.25 16.1297 21.09C14.9697 22.2 13.4797 22.76 11.9997 22.76ZM11.9997 2.75C9.08969 2.75 5.34969 4.3 4.35969 8.66C3.27969 13.37 6.23969 17.43 8.91969 20C10.6497 21.67 13.3597 21.67 15.0897 20C17.7597 17.43 20.7197 13.37 19.6597 8.66C18.6597 4.3 14.9097 2.75 11.9997 2.75Z" fill="#0e204580"/>
+                        </svg>
+                        {{ personal_info.address }}
+                    </p>
+                    <p class="institution">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.9995 11.75C12.8095 11.75 12.6195 11.68 12.4695 11.53C12.1795 11.24 12.1795 10.76 12.4695 10.47L20.6695 2.26999C20.9595 1.97999 21.4395 1.97999 21.7295 2.26999C22.0195 2.55999 22.0195 3.03999 21.7295 3.32999L13.5295 11.53C13.3795 11.68 13.1895 11.75 12.9995 11.75Z" fill="#0e204580"></path>
                             <path d="M21.9992 7.55C21.5892 7.55 21.2492 7.21 21.2492 6.8V2.75H17.1992C16.7892 2.75 16.4492 2.41 16.4492 2C16.4492 1.59 16.7892 1.25 17.1992 1.25H21.9992C22.4092 1.25 22.7492 1.59 22.7492 2V6.8C22.7492 7.21 22.4092 7.55 21.9992 7.55Z" fill="#0e204580"></path>
                             <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H11C11.41 1.25 11.75 1.59 11.75 2C11.75 2.41 11.41 2.75 11 2.75H9C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V13C21.25 12.59 21.59 12.25 22 12.25C22.41 12.25 22.75 12.59 22.75 13V15C22.75 20.43 20.43 22.75 15 22.75Z" fill="#0e204580"></path>
                         </svg>
                         {{ personal_info.email }}
                     </p>
+                    {% if personal_info.linkedin %}
                     <p class="institution">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.0009 14.1699C9.87086 14.1699 8.13086 12.4399 8.13086 10.2999C8.13086 8.15994 9.87086 6.43994 12.0009 6.43994C14.1309 6.43994 15.8709 8.16994 15.8709 10.3099C15.8709 12.4499 14.1309 14.1699 12.0009 14.1699ZM12.0009 7.93994C10.7009 7.93994 9.63086 8.99994 9.63086 10.3099C9.63086 11.6199 10.6909 12.6799 12.0009 12.6799C13.3109 12.6799 14.3709 11.6199 14.3709 10.3099C14.3709 8.99994 13.3009 7.93994 12.0009 7.93994Z" fill="#0e204580"/>
-                            <path d="M11.9997 22.76C10.5197 22.76 9.02969 22.2 7.86969 21.09C4.91969 18.25 1.65969 13.72 2.88969 8.33C3.99969 3.44 8.26969 1.25 11.9997 1.25C11.9997 1.25 11.9997 1.25 12.0097 1.25C15.7397 1.25 20.0097 3.44 21.1197 8.34C22.3397 13.73 19.0797 18.25 16.1297 21.09C14.9697 22.2 13.4797 22.76 11.9997 22.76ZM11.9997 2.75C9.08969 2.75 5.34969 4.3 4.35969 8.66C3.27969 13.37 6.23969 17.43 8.91969 20C10.6497 21.67 13.3597 21.67 15.0897 20C17.7597 17.43 20.7197 13.37 19.6597 8.66C18.6597 4.3 14.9097 2.75 11.9997 2.75Z" fill="#0e204580"/>
+                            <path d="M12.9995 11.75C12.8095 11.75 12.6195 11.68 12.4695 11.53C12.1795 11.24 12.1795 10.76 12.4695 10.47L20.6695 2.26999C20.9595 1.97999 21.4395 1.97999 21.7295 2.26999C22.0195 2.55999 22.0195 3.03999 21.7295 3.32999L13.5295 11.53C13.3795 11.68 13.1895 11.75 12.9995 11.75Z" fill="#0e204580"></path>
+                            <path d="M21.9992 7.55C21.5892 7.55 21.2492 7.21 21.2492 6.8V2.75H17.1992C16.7892 2.75 16.4492 2.41 16.4492 2C16.4492 1.59 16.7892 1.25 17.1992 1.25H21.9992C22.4092 1.25 22.7492 1.59 22.7492 2V6.8C22.7492 7.21 22.4092 7.55 21.9992 7.55Z" fill="#0e204580"></path>
+                            <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H11C11.41 1.25 11.75 1.59 11.75 2C11.75 2.41 11.41 2.75 11 2.75H9C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V13C21.25 12.59 21.59 12.25 22 12.25C22.41 12.25 22.75 12.59 22.75 13V15C22.75 20.43 20.43 22.75 15 22.75Z" fill="#0e204580"></path>
                         </svg>
-                        {{ personal_info.address }}
+                        <a href="{{ personal_info.linkedin }}" target="_blank">Linkedin</a>
                     </p>
+                    {% endif %}
+                    {% if personal_info.portfolio %}
+                    <p class="institution">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.9995 11.75C12.8095 11.75 12.6195 11.68 12.4695 11.53C12.1795 11.24 12.1795 10.76 12.4695 10.47L20.6695 2.26999C20.9595 1.97999 21.4395 1.97999 21.7295 2.26999C22.0195 2.55999 22.0195 3.03999 21.7295 3.32999L13.5295 11.53C13.3795 11.68 13.1895 11.75 12.9995 11.75Z" fill="#0e204580"></path>
+                            <path d="M21.9992 7.55C21.5892 7.55 21.2492 7.21 21.2492 6.8V2.75H17.1992C16.7892 2.75 16.4492 2.41 16.4492 2C16.4492 1.59 16.7892 1.25 17.1992 1.25H21.9992C22.4092 1.25 22.7492 1.59 22.7492 2V6.8C22.7492 7.21 22.4092 7.55 21.9992 7.55Z" fill="#0e204580"></path>
+                            <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H11C11.41 1.25 11.75 1.59 11.75 2C11.75 2.41 11.41 2.75 11 2.75H9C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V13C21.25 12.59 21.59 12.25 22 12.25C22.41 12.25 22.75 12.59 22.75 13V15C22.75 20.43 20.43 22.75 15 22.75Z" fill="#0e204580"></path>
+                        </svg>
+                        <a href="{{ personal_info.portfolio }}" target="_blank">Portfolio</a>
+                    </p>
+                    {% endif %}
                 </div>
             </div>
         </div>
-       <div class="resume-share-btn">
-           {% comment %} <p><a href="{{ personal_info.linkedin }}" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 1.25C3.48122 1.25 2.25 2.48122 2.25 4C2.25 5.51878 3.48122 6.75 5 6.75C6.51878 6.75 7.75 5.51878 7.75 4C7.75 2.48122 6.51878 1.25 5 1.25ZM3.75 4C3.75 3.30964 4.30964 2.75 5 2.75C5.69036 2.75 6.25 3.30964 6.25 4C6.25 4.69036 5.69036 5.25 5 5.25C4.30964 5.25 3.75 4.69036 3.75 4Z" fill="black"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 8C2.25 7.58579 2.58579 7.25 3 7.25H7C7.41421 7.25 7.75 7.58579 7.75 8V21C7.75 21.4142 7.41421 21.75 7 21.75H3C2.58579 21.75 2.25 21.4142 2.25 21V8ZM3.75 8.75V20.25H6.25V8.75H3.75Z" fill="black"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.25 8C9.25 7.58579 9.58579 7.25 10 7.25H14C14.4142 7.25 14.75 7.58579 14.75 8V8.43402L15.1853 8.24748C15.9336 7.92676 16.7339 7.72565 17.5433 7.65207C20.3182 7.3998 22.75 9.58038 22.75 12.3802V21C22.75 21.4142 22.4142 21.75 22 21.75H18C17.5858 21.75 17.25 21.4142 17.25 21V14C17.25 13.6685 17.1183 13.3505 16.8839 13.1161C16.6495 12.8817 16.3315 12.75 16 12.75C15.6685 12.75 15.3505 12.8817 15.1161 13.1161C14.8817 13.3505 14.75 13.6685 14.75 14V21C14.75 21.4142 14.4142 21.75 14 21.75H10C9.58579 21.75 9.25 21.4142 9.25 21V8ZM10.75 8.75V20.25H13.25V14C13.25 13.2707 13.5397 12.5712 14.0555 12.0555C14.5712 11.5397 15.2707 11.25 16 11.25C16.7293 11.25 17.4288 11.5397 17.9445 12.0555C18.4603 12.5712 18.75 13.2707 18.75 14V20.25H21.25V12.3802C21.25 10.4759 19.589 8.97227 17.6791 9.14591C17.025 9.20536 16.3784 9.36807 15.7762 9.6262L14.2954 10.2608C14.0637 10.3601 13.7976 10.3363 13.5871 10.1976C13.3767 10.0588 13.25 9.82354 13.25 9.57143V8.75H10.75Z" fill="black"/>
-            </svg>                 
-           </a></p>
-           <p><a href="{{ personal_info.portfolio }}" target="_blank">
-               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   <path d="M6.89088 15.75C6.61088 15.75 6.35088 15.6 6.22088 15.34C6.03088 14.97 6.18088 14.52 6.56088 14.33C7.43088 13.9 8.17088 13.24 8.70088 12.44C8.88088 12.17 8.88088 11.83 8.70088 11.56C8.16088 10.76 7.42088 10.1 6.56088 9.67002C6.18088 9.49002 6.03088 9.04002 6.22088 8.66002C6.40088 8.29002 6.85088 8.14002 7.22088 8.33002C8.32088 8.88002 9.26088 9.71002 9.94088 10.73C10.4509 11.5 10.4509 12.5 9.94088 13.27C9.26088 14.29 8.32088 15.12 7.22088 15.67C7.12088 15.72 7.00088 15.75 6.89088 15.75Z" fill="#0e2045"></path>
-                   <path d="M17 15.75H13C12.59 15.75 12.25 15.41 12.25 15C12.25 14.59 12.59 14.25 13 14.25H17C17.41 14.25 17.75 14.59 17.75 15C17.75 15.41 17.41 15.75 17 15.75Z" fill="#0e2045"></path>
-                   <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z" fill="#0e2045"></path>
-               </svg>
-           </a></p> {% endcomment %}
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.25 5.5C14.25 3.70507 15.7051 2.25 17.5 2.25C19.2949 2.25 20.75 3.70507 20.75 5.5C20.75 7.29493 19.2949 8.75 17.5 8.75C16.5404 8.75 15.6779 8.33409 15.083 7.6727L12.3657 9.15487L9.32515 10.8923C9.59552 11.3664 9.75 11.9152 9.75 12.5C9.75 12.7963 9.71034 13.0834 9.63603 13.3562L15.083 16.3273C15.6779 15.6659 16.5404 15.25 17.5 15.25C19.2949 15.25 20.75 16.7051 20.75 18.5C20.75 20.2949 19.2949 21.75 17.5 21.75C15.7051 21.75 14.25 20.2949 14.25 18.5C14.25 18.2036 14.2897 17.9166 14.364 17.6438L8.91704 14.6727C8.32212 15.3341 7.45963 15.75 6.5 15.75C4.70507 15.75 3.25 14.2949 3.25 12.5C3.25 10.7051 4.70507 9.25 6.5 9.25C7.15068 9.25 7.7567 9.44122 8.26492 9.77052L11.6343 7.84514L14.364 6.35625C14.2897 6.08344 14.25 5.79635 14.25 5.5ZM17.5 3.75C16.5335 3.75 15.75 4.5335 15.75 5.5C15.75 6.4665 16.5335 7.25 17.5 7.25C18.4665 7.25 19.25 6.4665 19.25 5.5C19.25 4.5335 18.4665 3.75 17.5 3.75ZM6.5 10.75C5.5335 10.75 4.75 11.5335 4.75 12.5C4.75 13.4665 5.5335 14.25 6.5 14.25C7.4665 14.25 8.25 13.4665 8.25 12.5C8.25 11.5335 7.4665 10.75 6.5 10.75ZM15.75 18.5C15.75 17.5335 16.5335 16.75 17.5 16.75C18.4665 16.75 19.25 17.5335 19.25 18.5C19.25 19.4665 18.4665 20.25 17.5 20.25C16.5335 20.25 15.75 19.4665 15.75 18.5Z" fill="#0e204580"/>
-        </svg>            
-       </div>
+        <div class="resume-share-btn">
+            <a href="javascript:void(0);" id="shareButton">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.25 5.5C14.25 3.70507 15.7051 2.25 17.5 2.25C19.2949 2.25 20.75 3.70507 20.75 5.5C20.75 7.29493 19.2949 8.75 17.5 8.75C16.5404 8.75 15.6779 8.33409 15.083 7.6727L12.3657 9.15487L9.32515 10.8923C9.59552 11.3664 9.75 11.9152 9.75 12.5C9.75 12.7963 9.71034 13.0834 9.63603 13.3562L15.083 16.3273C15.6779 15.6659 16.5404 15.25 17.5 15.25C19.2949 15.25 20.75 16.7051 20.75 18.5C20.75 20.2949 19.2949 21.75 17.5 21.75C15.7051 21.75 14.25 20.2949 14.25 18.5C14.25 18.2036 14.2897 17.9166 14.364 17.6438L8.91704 14.6727C8.32212 15.3341 7.45963 15.75 6.5 15.75C4.70507 15.75 3.25 14.2949 3.25 12.5C3.25 10.7051 4.70507 9.25 6.5 9.25C7.15068 9.25 7.7567 9.44122 8.26492 9.77052L11.6343 7.84514L14.364 6.35625C14.2897 6.08344 14.25 5.79635 14.25 5.5ZM17.5 3.75C16.5335 3.75 15.75 4.5335 15.75 5.5C15.75 6.4665 16.5335 7.25 17.5 7.25C18.4665 7.25 19.25 6.4665 19.25 5.5C19.25 4.5335 18.4665 3.75 17.5 3.75ZM6.5 10.75C5.5335 10.75 4.75 11.5335 4.75 12.5C4.75 13.4665 5.5335 14.25 6.5 14.25C7.4665 14.25 8.25 13.4665 8.25 12.5C8.25 11.5335 7.4665 10.75 6.5 10.75ZM15.75 18.5C15.75 17.5335 16.5335 16.75 17.5 16.75C18.4665 16.75 19.25 17.5335 19.25 18.5C19.25 19.4665 18.4665 20.25 17.5 20.25C16.5335 20.25 15.75 19.4665 15.75 18.5Z" fill="#0e204580"/>
+                </svg>
+            </a>
+            <span id="linkCopiedText">Link copied!</span>    
+        </div>        
     </div>
 
     <div class="education-info-section">
@@ -94,18 +94,32 @@
         <div class="institution-location">                
             <p>{{ personal_info.institution_location }}</p>
         </div>
+        
+    {% if personal_info.degree_1 %}
+        <div class="degree">
+            <h3>{{ personal_info.degree_1 }}</h3>
+            <p>{{ personal_info.graduation_year_1 }}</p>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;" class="field-of-stydy">
+            <p>{{ personal_info.field_of_study_1 }}</p>
+            <p>GPA: {{ personal_info.gpa_1 }}</p>
+        </div>
+        <div class="institution">           
+            <p>{{ personal_info.institution_1 }}</p>
+        </div>
+        <div class="institution-location">                
+            <p>{{ personal_info.institution_location_1 }}</p>
+        </div>
+        {% endif %}
+        
     </div>
 
     <div class="skills-info-section">
         <div class="soft-skills">
             <h2 style="margin: 1em 0">Soft Skills:</h2>
-            <ul>
+            <ul class="custom-list">
                 {% for soft_skill in soft_skills_list %}
-                    <li class="institution">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="#0e204580"/>
-                            <path d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z" fill="#0e204580"/>
-                        </svg>
+                    <li>
                         {{ soft_skill }}
                     </li>
                 {% endfor %}
@@ -113,13 +127,9 @@
         </div>
         <div class="technical-skills">
             <h2 style="margin: 1em 0">Technical Skills:</h2>
-            <ul>
+            <ul class="custom-list">
                 {% for technical_skill in technical_skills_list %}
-                    <li class="institution">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="#0e204580"/>
-                            <path d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z" fill="#0e204580"/>
-                        </svg>
+                    <li>
                         {{ technical_skill }}
                     </li>
                 {% endfor %}
@@ -140,17 +150,56 @@
             <p>{{ personal_info.work_location }}</p>
         </div>
         <p style="margin: 1em 0"><strong>Responsibilities:</strong></p>
-        <ul>
+        <ul class="custom-list">
             {% for responsibility in responsibilities_list %}
                 <li class="institution">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="#0e204580"/>
-                        <path d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z" fill="#0e204580"/>
-                    </svg>
                     {{ responsibility }}
                 </li>
             {% endfor %}
         </ul>
+        <br>
+        {% if personal_info.job_title_1 %}
+        <div class="degree">
+            <h3>{{ personal_info.job_title_1 }}</h3>
+            <p>{{ personal_info.employment_dates_1 }}</p>
+        </div>
+        <div class="company">
+            <p> {{ personal_info.company_1 }}</p>
+        </div>
+        <div class="work-location">
+            <p>{{ personal_info.work_location_1 }}</p>
+        </div>
+        <p style="margin: 1em 0"><strong>Responsibilities:</strong></p>
+        <ul class="custom-list">
+            {% for responsibility_1 in responsibilities_list_1 %}
+                <li class="institution">
+                    {{ responsibility_1 }}
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <br>
+        {% if personal_info.job_title_2 %}
+        <div class="degree">
+            <h3>{{ personal_info.job_title_2 }}</h3>
+            <p>{{ personal_info.employment_dates_2 }}</p>
+        </div>
+        <div class="company">
+            <p> {{ personal_info.company_2 }}</p>
+        </div>
+        <div class="work-location">
+            <p>{{ personal_info.work_location_2 }}</p>
+        </div>
+        <p style="margin: 1em 0"><strong>Responsibilities:</strong></p>
+        <ul class="custom-list">
+            {% for responsibility_2 in responsibilities_list_2 %}
+                <li class="institution">
+                    {{ responsibility_2 }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
     </div>
 
     <div class="project-info-section">
@@ -170,6 +219,43 @@
             <p style="margin: .5em 0"><strong>Project URL</strong></p>
             <p><a href="{{ personal_info.project_url }}" target="_blank">{{ personal_info.project_url }}</a></p>
         </div>
+        <br>
+        {% if personal_info.project_title_1 %}
+        <div class="degree">
+            <h3>{{ personal_info.project_title_1 }}</h3>
+        </div>
+        <div class="project-description">
+            <p style="margin: .5em 0"><strong>Description</strong></p>
+            <p>{{ personal_info.project_description_1 }}</p>
+        </div>
+        <div class="techs">
+            <p style="margin: .5em 0"><strong>Technologies used</strong></p>
+            <p>{{ personal_info.technologies_used_1 }}</p>
+        </div>
+        <div class="project-url">
+            <p style="margin: .5em 0"><strong>Project URL</strong></p>
+            <p><a href="{{ personal_info.project_url_1 }}" target="_blank">{{ personal_info.project_url_1 }}</a></p>
+        </div>
+        {% endif %}
+        <br>
+        {% if personal_info.project_title_2 %}
+        <div class="degree">
+            <h3>{{ personal_info.project_title_2 }}</h3>
+        </div>
+        <div class="project-description">
+            <p style="margin: .5em 0"><strong>Description</strong></p>
+            <p>{{ personal_info.project_description_2 }}</p>
+        </div>
+        <div class="techs">
+            <p style="margin: .5em 0"><strong>Technologies used</strong></p>
+            <p>{{ personal_info.technologies_used_2 }}</p>
+        </div>
+        <div class="project-url">
+            <p style="margin: .5em 0"><strong>Project URL</strong></p>
+            <p><a href="{{ personal_info.project_url_2 }}" target="_blank">{{ personal_info.project_url_2 }}</a></p>
+        </div>
+        {% endif %}
+
     </div>
 
     {% if personal_info.certification_name %}
@@ -182,7 +268,60 @@
         <div>
             <p><strong>Issuing Organization:</strong> {{ personal_info.issuing_organization }}</p>
         </div>
+        <br>
+        {% if personal_info.certification_name_1 %}
+        <div class="degree">
+            <h3>{{ personal_info.certification_name_1 }}</h3>
+            <p>{{ personal_info.date_earned_1 }}</p>
+        </div>
+        <div>
+            <p><strong>Issuing Organization:</strong> {{ personal_info.issuing_organization }}</p>
+        </div>
+        {% endif %}
     </div>
     {% endif %}
+
+    <div style="display: flex; justify-content: center">
+        <div class="create-new">
+            <a href="/" class="institution">
+                Create your own web resume
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.9995 11.75C12.8095 11.75 12.6195 11.68 12.4695 11.53C12.1795 11.24 12.1795 10.76 12.4695 10.47L20.6695 2.26999C20.9595 1.97999 21.4395 1.97999 21.7295 2.26999C22.0195 2.55999 22.0195 3.03999 21.7295 3.32999L13.5295 11.53C13.3795 11.68 13.1895 11.75 12.9995 11.75Z" fill="#fff"></path>
+                    <path d="M21.9992 7.55C21.5892 7.55 21.2492 7.21 21.2492 6.8V2.75H17.1992C16.7892 2.75 16.4492 2.41 16.4492 2C16.4492 1.59 16.7892 1.25 17.1992 1.25H21.9992C22.4092 1.25 22.7492 1.59 22.7492 2V6.8C22.7492 7.21 22.4092 7.55 21.9992 7.55Z" fill="#fff"></path>
+                    <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H11C11.41 1.25 11.75 1.59 11.75 2C11.75 2.41 11.41 2.75 11 2.75H9C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V13C21.25 12.59 21.59 12.25 22 12.25C22.41 12.25 22.75 12.59 22.75 13V15C22.75 20.43 20.43 22.75 15 22.75Z" fill="#fff"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
 </section>
 {% endblock content %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("shareButton").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevents the default action of clicking on a link
+            
+            // Copying the link
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            shareButton.style.display = "none";
+            
+            // Displaying the "Link copied!" text
+            var linkCopiedText = document.getElementById("linkCopiedText");
+            linkCopiedText.style.display = "inline";
+            
+            // Hiding the share button for 5 seconds
+            setTimeout(function() {
+                linkCopiedText.style.display = "none";
+                shareButton.style.display = "inline";
+            }, 2000);
+        });
+    });
+</script>
+
+</body>
+</html>
