@@ -24,9 +24,8 @@ class PersonalInformation(models.Model):
     field_of_study_1 = models.CharField(max_length=100, blank=True)
     institution_1 = models.CharField(max_length=100, blank=True)
     institution_location_1 = models.CharField(max_length=100, blank=True)
-    graduation_year_1 = models.IntegerField(default=0)
-    gpa_1 = models.DecimalField(max_digits=4, decimal_places=2, default=0)
-
+    graduation_year_1 = models.IntegerField(default=0, null=True)
+    gpa_1 = models.DecimalField(max_digits=4, decimal_places=2, default=0, null=True)
 
     # Work Experience
     job_title = models.CharField(max_length=100, blank=True)

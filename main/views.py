@@ -41,8 +41,8 @@ def builder(request):
             field_of_study_1=request.POST.get('field_of_study_1', ''),
             institution_1=request.POST.get('institution_1', ''),
             institution_location_1=request.POST.get('institution_location_1', ''),
-            graduation_year_1=request.POST.get('graduation_year_1', None),
-            gpa_1=request.POST.get('gpa_1', None),
+            graduation_year_1=request.POST.get('graduation_year_1', None) or None,
+            gpa_1=request.POST.get('gpa_1', None) or None,
 
 
             # Work Experience
