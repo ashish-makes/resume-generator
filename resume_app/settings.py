@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jd0w#w+k%@zdwnuiaad^xe7q)abah3f)j3@x(tenk^rvsze^-q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-CSRF_TRUSTED_ORIGINS = ['http://.*', 'https://resume-generator.2.us-1.fl0.io', 'https://resume-generator-yd9m.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['http://resume-generator.2.us-1.fl0.io',]
 
 ALLOWED_HOSTS = ["*"]
 
