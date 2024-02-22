@@ -28,6 +28,8 @@ SECRET_KEY = 'django-insecure-jd0w#w+k%@zdwnuiaad^xe7q)abah3f)j3@x(tenk^rvsze^-q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+CSRF_TRUSTED_ORIGINS = ['http://.*', 'https://resume-generator.2.us-1.fl0.io', 'https://resume-generator-yd9m.onrender.com']
+
 ALLOWED_HOSTS = ["*"]
 
 
