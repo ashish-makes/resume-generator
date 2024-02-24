@@ -89,6 +89,10 @@ WSGI_APPLICATION = 'resume_app.wsgi.application'
 
 DATABASE_URL = 'postgres://fl0user:uGZ5N6rOyLUR@ep-sweet-credit-a5vdcznr.us-east-2.aws.neon.fl0.io:5432/resume-db?sslmode=require'
 
+# DATABASES = {
+#     'default': dj_database_url.config(default=DATABASE_URL)
+# }
+
 if not DEBUG:
     DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL)
