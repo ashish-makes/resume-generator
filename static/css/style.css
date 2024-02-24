@@ -145,12 +145,12 @@ header {
 }
 
 .hero-img {
-    background: #f7f7f9;
-    border-radius: 20px;
+    /* background: #f7f7f9;
+    border-radius: 20px; */
     width: 100%;
     height: 500px;
-    mask-image: linear-gradient(to top, transparent 5%, #040714 100%);
-    -webkit-mask-image: linear-gradient(to top, transparent 5%, #040714 100%);
+    /* mask-image: linear-gradient(to top, transparent 5%, #040714 100%);
+    -webkit-mask-image: linear-gradient(to top, transparent 5%, #040714 100%); */
 }
 
 .features-content {
