@@ -10,21 +10,6 @@
     transition: .2s ease;
 }
 
-@font-face{
-    font-family: 'JetBrains Mono';
-    src: url("../fonts/JetBrainsMono-Regular.ttf") format('truetype');
-}
-
-@font-face{
-    font-family: 'JetBrainsMono-Bold';
-    src: url("../fonts/JetBrainsMono-Bold.ttf") format('truetype');
-}
-
-@font-face{
-    font-family: 'JetBrainsMono-ExtraBold';
-    src: url("../fonts/JetBrainsMono-ExtraBold.ttf") format('truetype');
-}
-
 body{
 	color: #000;
 	background: #fff;
