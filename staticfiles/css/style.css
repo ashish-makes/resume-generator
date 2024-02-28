@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 *{
-	font-family: 'JetBrains Mono', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -503,6 +505,20 @@ button:hover svg path {
     border: none;
     color: #fff;
 }
+/* 
+.hero h1{
+    width: 70%;
+    height: 70px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'CovesBold';
+}
+
+.hero h1 span{
+    position: absolute;
+    font-size: 3rem;
+    line-height: 4.2rem;
+} */
 
 @media (max-width: 1000px){
 	.container{
